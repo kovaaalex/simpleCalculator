@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    </style>
+</head>
+<body>
+    <header>
+        <ul id="chooseList">
+            <li data-content="basic__calculator">Basic</li>
+            <li data-content="engineering__calculator">Engineering</li>
+            <li data-content="finance__calculator">Finance</li>
+            <li data-content="date__calculator">Date</li>
+        </ul>
+    </header>
+    <div id="clc">
+        <div id="basic__calculator" class="calc">
+            <div class="basic__result__window">
+                <div id="basic__result__inner"></div>
+                <div id="basic__result__outer"></div>
+            </div>
+            <div class="basic__bttns">
+                <button id="basic__clearAll">C</button>
+                <button id="basic__clearLast">CЕ</button>
+                <button id="basic__backspace">⟵</button>
+                <button class="basic__unary__operation" id="basic__percent">%</button>
+                <button class="basic__unary__operation" id="basic__opposite">1/x</button>
+                <button class="basic__unary__operation" id="basic__square">x<sup>2</sup></button>
+                <button class="basic__unary__operation" id="basic__square__root">√</button>
+                <button class="basic__operation" id="basic__divide">÷</button>
+                <button class="basic__digit">7</button>
+                <button class="basic__digit">8</button>
+                <button class="basic__digit">9</button>
+                <button class="basic__operation" id="basic__multiply">×</button>
+                <button class="basic__digit">4</button>
+                <button class="basic__digit">5</button>
+                <button class="basic__digit">6</button>
+                <button class="basic__operation" id="basic__plus">+</button>
+                <button class="basic__digit">1</button>
+                <button class="basic__digit">2</button>
+                <button class="basic__digit">3</button>
+                <button class="basic__operation" id="basic__minus">-</button>
+                <button class="basic__unary__operation" id="basic__opposite__sign">±</button>
+                <button class="basic__digit">0</button>
+                <button class="basic__po">.</button>
+                <button class="basic__equal" id="basic__equal">=</button>
+            </div>
+        </div>
+        <div id="engineering__calculator" class="calc">
+            <div class="engineering__result__window">
+                <div id="engineering__result__inner"></div>
+                <div id="engineering__result__outer"></div>
+            </div>
+            <div class="engineering__bttns">
+                <button id="engineering__clearLast">C</button>
+                <button id="engineering__backspace">⟵</button>
+                <button id="bracket">(</button>
+                <button id="bracket">)</button>
+                <button id="2nd">2<sup>nd</sup></button>
+                <button class="engineering__unary__operation" id="engineering__square">x<sup>2</sup></button>
+                <button class="engineering__unary__operation" id="engineering__opposite">1/x</button>
+                <button class="engineering__unary__operation" id="engineering__abs">|x|</button>
+                <button class="engineering__unary__operation" id="engineering__floor">⌊х⌋</button>
+                <button class="engineering__operation" id="engineering__plus">+</button>
+                <button class="engineering__unary__operation" id="engineering__square__root">√</button>
+                <button class="engineering__trigonometric__function">sin(x)</button>
+                <button class="engineering__trigonometric__function">cos(x)</button>
+                <button class="engineering__trigonometric__function">tan(x)</button>
+                <button class="engineering__operation" id="basic__minus">-</button>
+                <button class="engineering__operation" id="engineering__exp">exp</button>
+                <button class="unique__number" id="ENumber">e</button>
+                <button class="unique__number" id="PiNumber">π</button>
+                <button class="engineering__unary__operation" id="engineering__fact">n!</button>
+                <button class="engineering__operation" id="engineering__multiply">×</button>
+                <button class="engineering__unary__operation" id="lg">lg(x)</button>
+                <button class="engineering__digit">7</button>
+                <button class="engineering__digit">8</button>
+                <button class="engineering__digit">9</button>
+                <button class="engineering__operation" id="engineering__divide">÷</button>
+                <button class="engineering__binary__operation" id="ln">log<sub>y</sub>(x)</button>
+                <button class="engineering__digit">4</button>
+                <button class="engineering__digit">5</button>
+                <button class="engineering__digit">6</button>
+                <button class="engineering__operation" id="mod">mod</button>
+                <button id="deg">deg</button>
+                <button class="engineering__digit">1</button>
+                <button class="engineering__digit">2</button>
+                <button class="engineering__digit">3</button>
+                <button class="engineering__operation" id="m">^</button>
+                <button id="tg-1">tg(-1)</button>
+                <button class="engineering__unary__operation" id="engineering__opposite__sign">±</button>
+                <button class="engineering__digit">0</button>
+                <button class="engineering__po">.</button>
+                <button class="engineering__equal" id="engineering__equal">=</button>
+          </div>
+        </div>   
+    </div>
+    <script src="newBasicCalc.js"></script>
+    <script src="mainCalculator.js"></script>
+    <script src="engineeringCalculator.js"></script>
+</body>
+</html>
+<!--po поменял, надо в js исправить-->
+<!--Иконку-->
+<!--создать 4 калькулятора, обернуть калькуляторы в один div
+прописать data-content для элементов списка-->
