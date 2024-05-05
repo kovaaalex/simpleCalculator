@@ -20,7 +20,15 @@ let engValue = "", engTempvalue = "", engFirstValue = "", operator, countOperato
 engineering__numbers.forEach(number => number.addEventListener('click', () => engineeringUpdateValue(number.outerText)))
 engineering__operations.forEach(operation => operation.addEventListener('click', () => engineeringHandleOperation(operation.outerText)))
 engineering__eql.addEventListener('click', () => engineeringCalculateResult())
+engineering__C.addEventListener('click', () => engineeringClearAll())
 
+function engineeringClearAll(){
+    engValue = engTempvalue = engFirstValue = operator = ""
+    countOperators = 0
+    engineering__inner.innerHTML = ""
+    engineering__outer.innerHTML = ""
+
+}
 function engineeringUpdateValue(char) {
     engValue += char
     engTempvalue += char
@@ -120,10 +128,10 @@ function evaluateRPN(rpn) {
                 case '-':
                     stack.push(a - b)
                     break;
-                case '*':
+                case "×":
                     stack.push(a * b)
                     break;
-                case '/':
+                case "÷":
                     {
                         if(checkDivisionByZero(b)) return "Деление на ноль запрещено"
                         stack.push(a / b)
