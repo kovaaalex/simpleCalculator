@@ -45,6 +45,7 @@ function engineeringHandleOperation(op){
 function engineeringCalculateResult(){
     //if(!areBracketsBalanced(value)) return
     const rpn = toRPN(engValue)
+    engineering__inner.innerHTML = engValue + "="
     engineering__outer.innerHTML = evaluateRPN(rpn)
     engValue = engTempvalue = engineering__outer.outerText
 }
