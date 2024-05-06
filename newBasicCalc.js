@@ -44,7 +44,6 @@ function clearLastElement(){
 }
 
 function blocked(){
-
     unary__operations.forEach(un__op => un__op.disabled = true)
     operations.forEach(un__op => un__op.disabled = true)
     po.disabled = true
@@ -197,3 +196,4 @@ function handleUnaryOperation(unar__op){
     un_op = true
 }
 // осталось заблокировать кнопки при делителе 0 и отрицателльном корне
+//сделать так, чтобы в числе была только одна точка

@@ -15,13 +15,21 @@ const engineering__piNumber = document.querySelector('.PiNumber')
 const arrOperations = ["+", "-", "*", "/", "%"]
 const arrOperationsPriorities = [1, 1, 2, 2, 2]
 const priority = { "+": 1, "-": 1, "*": 2, "/": 2, "%": 2, "^": 3, "(": 0 }
-let engValue = "", engTempvalue = "", engFirstValue = "", operator, countOperators = 0
+const brackets = document.querySelectorAll('.bracket')
+
+let engValue = "", engTempvalue = "", engFirstValue = "", operator, countOperators = 0, engWorksEqual = false
 
 engineering__numbers.forEach(number => number.addEventListener('click', () => engineeringUpdateValue(number.outerText)))
 engineering__operations.forEach(operation => operation.addEventListener('click', () => engineeringHandleOperation(operation.outerText)))
 engineering__eql.addEventListener('click', () => engineeringCalculateResult())
 engineering__C.addEventListener('click', () => engineeringClearAll())
+brackets.forEach(bracket => bracket.addEventListener('click',() => addBracket(bracket.outerText)))
+engineering__unary__operations.forEach(un_operation => un_operation.addEventListener('click', () => engineeringHandleUnaryOperation(un_operation.outerText)))
 
+function addBracket(br){
+    engValue += br
+    engineering__inner.innerHTML = engValue
+}
 function engineeringClearAll(){
     engValue = engTempvalue = engFirstValue = operator = ""
     countOperators = 0
@@ -49,7 +57,24 @@ function engineeringHandleOperation(op){
     engTempvalue = ""
     countOperators++
 }
-
+function engineeringHandleUnaryOperation(un_operation){
+    const regex = new RegExp(`${engTempvalue}(?!.*${engTempvalue})`, 'i')
+    switch (un_operation) {
+        case "1/x":{
+            engValue = engValue.replace(regex, 1/ +engTempvalue);
+            engTempvalue = 1/engTempvalue
+        }
+        case "1/x":{
+            engValue = engValue.replace(regex, 1/ +engTempvalue);
+            engTempvalue = 1/engTempvalue
+        }
+            break;
+    
+        default:
+            break;
+    }
+    engineering__outer.innerHTML = engTempvalue
+}
 function engineeringCalculateResult(){
     //if(!areBracketsBalanced(value)) return
     const rpn = toRPN(engValue)
