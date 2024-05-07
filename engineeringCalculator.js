@@ -59,20 +59,32 @@ function engineeringHandleOperation(op){
 }
 function engineeringHandleUnaryOperation(un_operation){
     const regex = new RegExp(`${engTempvalue}(?!.*${engTempvalue})`, 'i')
+    let outputOperation
     switch (un_operation) {
         case "1/x":{
-            engValue = engValue.replace(regex, 1/ +engTempvalue);
+            engValue = engValue.replace(regex, 1/ +engTempvalue)
+            outputOperation = `1/${engTempvalue}`
             engTempvalue = 1/engTempvalue
+            break
         }
-        case "1/x":{
-            engValue = engValue.replace(regex, 1/ +engTempvalue);
-            engTempvalue = 1/engTempvalue
+        case "|x|":{
+            engValue = engValue.replace(regex, Math.abs(engTempvalue))
+            outputOperation = `abs(${engTempvalue})`
+            engTempvalue = Math.abs(engTempvalue)
+            break
+        }
+        case "⌊х⌋":{
+            engValue = engValue.replace(regex, Math.floor(engTempvalue))
+            outputOperation = `floor(${engTempvalue})`
+            engTempvalue = Math.floor(engTempvalue)
+            break
         }
             break;
     
         default:
             break;
     }
+    engineering__inner.innerHTML = outputOperation
     engineering__outer.innerHTML = engTempvalue
 }
 function engineeringCalculateResult(){
