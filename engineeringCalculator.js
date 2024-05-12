@@ -1,3 +1,4 @@
+
 const engineering__numbers = document.querySelectorAll('.engineering__digit')
 const engineering__operations = document.querySelectorAll('.engineering__operation')
 const engineering__unary__operations = document.querySelectorAll('.engineering__unary__operation')
@@ -79,7 +80,19 @@ function engineeringHandleUnaryOperation(un_operation){
             engTempvalue = Math.floor(engTempvalue)
             break
         }
-            break;
+        case "⌈х⌉":{
+            engValue = engValue.replace(regex, Math.ceil(engTempvalue))
+            outputOperation = `ceil(${engTempvalue})`
+            engTempvalue = Math.ceil(engTempvalue)
+            break
+        }
+        case "n!":{
+            engValue = engValue.replace(regex, Math.gamma(+engTempvalue + 1))
+            outputOperation = `ceil(${engTempvalue})`
+            engTempvalue = Math.gamma(+engTempvalue + 1)
+            break
+        }
+        
     
         default:
             break;

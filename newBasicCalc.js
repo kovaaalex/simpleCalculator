@@ -58,7 +58,12 @@ function unblocked(){
 function updateValue(char){
     if(po.disabled === true)
         clearAll()
-    tempvalue += char
+    if(tempvalue.includes('.') && char === '.') 
+        return
+    if (tempvalue === "0") 
+        tempvalue = char
+    else
+        tempvalue += char
     outer.innerHTML = tempvalue
 }
 
