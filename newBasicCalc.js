@@ -32,7 +32,7 @@ function clearLast(){
     if(po.disabled === true || worksEqual)
         clearAll()
     else{
-        tempvalue = ""
+        tempvalue = "0"
         outer.innerHTML = tempvalue
     }
 }

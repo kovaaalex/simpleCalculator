@@ -13,12 +13,12 @@ const engineering__e = 2.7182818284590452353602874713527
 const engineering__pi = 3.1415926535897932384626433832795
 const engineering__eNumber = document.querySelector('.ENumber')
 const engineering__piNumber = document.querySelector('.PiNumber')
-const arrOperations = ["+", "-", "*", "/", "%"]
+const arrOperations = ["+", "-", "×", "÷", "%"]
 const arrOperationsPriorities = [1, 1, 2, 2, 2]
-const priority = { "+": 1, "-": 1, "*": 2, "/": 2, "%": 2, "^": 3, "(": 0 }
+const priority = { "+": 1, "-": 1, "*": 2, "÷": 2, "%": 2, "^": 3, "(": 0 }
 const brackets = document.querySelectorAll('.bracket')
 
-let engValue = "", engTempvalue = "", engFirstValue = "", operator, countOperators = 0, engWorksEqual = false
+let engValue = "", engTempvalue = "", engFirstValue = "", operator, countOperators = 0, engWorksEqual = false, bool__brackets = false
 
 engineering__numbers.forEach(number => number.addEventListener('click', () => engineeringUpdateValue(number.outerText)))
 engineering__operations.forEach(operation => operation.addEventListener('click', () => engineeringHandleOperation(operation.outerText)))
@@ -30,13 +30,14 @@ engineering__unary__operations.forEach(un_operation => un_operation.addEventList
 function addBracket(br){
     engValue += br
     engineering__inner.innerHTML = engValue
+    bool__brackets = true
 }
 function engineeringClearAll(){
     engValue = engTempvalue = engFirstValue = operator = ""
     countOperators = 0
     engineering__inner.innerHTML = ""
-    engineering__outer.innerHTML = ""
-
+    engineering__outer.innerHTML = "0"
+    bool__brackets = false
 }
 function engineeringUpdateValue(char) {
     engValue += char
@@ -45,7 +46,7 @@ function engineeringUpdateValue(char) {
 }
 
 function engineeringHandleOperation(op){
-    if (operator)
+    if (operator && !bool__brackets)
     {
         //let firstOperator = operator
         if(arrOperationsPriorities[arrOperations.indexOf(operator)] >= arrOperationsPriorities[arrOperations.indexOf(op)]) 
@@ -87,9 +88,9 @@ function engineeringHandleUnaryOperation(un_operation){
             break
         }
         case "n!":{
-            engValue = engValue.replace(regex, Math.gamma(+engTempvalue + 1))
+            engValue = engValue.replace(regex, math.gamma(+engTempvalue + 1))
             outputOperation = `ceil(${engTempvalue})`
-            engTempvalue = Math.gamma(+engTempvalue + 1)
+            engTempvalue = math.gamma(+engTempvalue + 1)
             break
         }
         
