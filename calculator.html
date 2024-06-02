@@ -99,11 +99,21 @@
                 <button class="engineering__point">.</button>
                 <button class="engineering__equal" id="engineering__equal">=</button>
           </div>
-        </div>   
+        </div> 
+        <div id="finance__calculator" class="calc">
+            <h1>Конвертер валют</h1>
+        <form id="conversionForm">
+            <label for="amount">Сумма в долларах:</label>
+            <input type="number" id="amount" required>
+            <button type="submit">Конвертировать</button>
+        </form>
+        <p id="result"></p>
+        </div>
     </div>
     <script src="newBasicCalc.js"></script>
     <script src="mainCalculator.js"></script>
     <script src="engineeringCalculator.js"></script>
+    <script src="financeCalculator.js"></script>
 </body>
 </html>
 <!--po поменял, надо в js исправить-->

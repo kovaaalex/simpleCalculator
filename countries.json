@@ -1,0 +1,129 @@
+{
+    "countries": [
+      {
+        "name": "Соединенные Штаты",
+        "currency": "USD"
+      },
+      {
+        "name": "Канада",
+        "currency": "CAD"
+      },
+      {
+        "name": "Мексика",
+        "currency": "MXN"
+      },
+      {
+        "name": "Великобритания",
+        "currency": "GBP"
+      },
+      {
+        "name": "Германия",
+        "currency": "EUR"
+      },
+      {
+        "name": "Франция",
+        "currency": "EUR"
+      },
+      {
+        "name": "Италия",
+        "currency": "EUR"
+      },
+      {
+        "name": "Испания",
+        "currency": "EUR"
+      },
+      {
+        "name": "Россия",
+        "currency": "RUB"
+      },
+      {
+        "name": "Китай",
+        "currency": "CNY"
+      },
+      {
+        "name": "Япония",
+        "currency": "JPY"
+      },
+      {
+        "name": "Южная Корея",
+        "currency": "KRW"
+      },
+      {
+        "name": "Индия",
+        "currency": "INR"
+      },
+      {
+        "name": "Австралия",
+        "currency": "AUD"
+      },
+      {
+        "name": "Бразилия",
+        "currency": "BRL"
+      },
+      {
+        "name": "Южная Африка",
+        "currency": "ZAR"
+      },
+      {
+        "name": "Саудовская Аравия",
+        "currency": "SAR"
+      },
+      {
+        "name": "Аргентина",
+        "currency": "ARS"
+      },
+      {
+        "name": "Турция",
+        "currency": "TRY"
+      },
+      {
+        "name": "Швейцария",
+        "currency": "CHF"
+      },
+      {
+        "name": "Норвегия",
+        "currency": "NOK"
+      },
+      {
+        "name": "Швеция",
+        "currency": "SEK"
+      },
+      {
+        "name": "Дания",
+        "currency": "DKK"
+      },
+      {
+        "name": "Польша",
+        "currency": "PLN"
+      },
+      {
+        "name": "Венгрия",
+        "currency": "HUF"
+      },
+      {
+        "name": "Чехия",
+        "currency": "CZK"
+      },
+      {
+        "name": "Украина",
+        "currency": "UAH"
+      },
+      {
+        "name": "Беларусь",
+        "currency": "BYN"
+      },
+      {
+        "name": "Казахстан",
+        "currency": "KZT"
+      },
+      {
+        "name": "Израиль",
+        "currency": "ILS"
+      },
+      {
+        "name": "Египет",
+        "currency": "EGP"
+      }
+    ]
+  }
+  
