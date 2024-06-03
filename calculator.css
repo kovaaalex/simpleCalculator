@@ -103,5 +103,10 @@ header ul li{
 #basic__equal, #engineering__equal{
     background-color: #FFA500;
 }
+.finance{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
 /*текст справа сделать
 Оранжевым подсвечивать выбранный калькулятор*/

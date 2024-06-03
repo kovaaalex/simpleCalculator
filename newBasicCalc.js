@@ -1,4 +1,4 @@
-const numbers = document.querySelectorAll('.basic__digit')
+const numbers = document.querySelectorAll('.basic .basic__digit')
 const operations = document.querySelectorAll('.basic__operation')
 const unary__operations = document.querySelectorAll('.basic__unary__operation')
 const CE = document.querySelector('#basic__clearLast')

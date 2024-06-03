@@ -1,129 +1,159 @@
 {
-    "countries": [
-      {
-        "name": "Соединенные Штаты",
-        "currency": "USD"
-      },
-      {
-        "name": "Канада",
-        "currency": "CAD"
-      },
-      {
-        "name": "Мексика",
-        "currency": "MXN"
-      },
-      {
-        "name": "Великобритания",
-        "currency": "GBP"
-      },
-      {
-        "name": "Германия",
-        "currency": "EUR"
-      },
-      {
-        "name": "Франция",
-        "currency": "EUR"
-      },
-      {
-        "name": "Италия",
-        "currency": "EUR"
-      },
-      {
-        "name": "Испания",
-        "currency": "EUR"
-      },
-      {
-        "name": "Россия",
-        "currency": "RUB"
-      },
-      {
-        "name": "Китай",
-        "currency": "CNY"
-      },
-      {
-        "name": "Япония",
-        "currency": "JPY"
-      },
-      {
-        "name": "Южная Корея",
-        "currency": "KRW"
-      },
-      {
-        "name": "Индия",
-        "currency": "INR"
-      },
-      {
-        "name": "Австралия",
-        "currency": "AUD"
-      },
-      {
-        "name": "Бразилия",
-        "currency": "BRL"
-      },
-      {
-        "name": "Южная Африка",
-        "currency": "ZAR"
-      },
-      {
-        "name": "Саудовская Аравия",
-        "currency": "SAR"
-      },
-      {
-        "name": "Аргентина",
-        "currency": "ARS"
-      },
-      {
-        "name": "Турция",
-        "currency": "TRY"
-      },
-      {
-        "name": "Швейцария",
-        "currency": "CHF"
-      },
-      {
-        "name": "Норвегия",
-        "currency": "NOK"
-      },
-      {
-        "name": "Швеция",
-        "currency": "SEK"
-      },
-      {
-        "name": "Дания",
-        "currency": "DKK"
-      },
-      {
-        "name": "Польша",
-        "currency": "PLN"
-      },
-      {
-        "name": "Венгрия",
-        "currency": "HUF"
-      },
-      {
-        "name": "Чехия",
-        "currency": "CZK"
-      },
-      {
-        "name": "Украина",
-        "currency": "UAH"
-      },
-      {
-        "name": "Беларусь",
-        "currency": "BYN"
-      },
-      {
-        "name": "Казахстан",
-        "currency": "KZT"
-      },
-      {
-        "name": "Израиль",
-        "currency": "ILS"
-      },
-      {
-        "name": "Египет",
-        "currency": "EGP"
-      }
-    ]
-  }
-  
+  "countries": [
+    {
+      "name": "Соединенные Штаты",
+      "currency": "USD",
+      "flag": "https://flagcdn.com/us.svg"
+    },
+    {
+      "name": "Канада",
+      "currency": "CAD",
+      "flag": "https://flagcdn.com/ca.svg"
+    },
+    {
+      "name": "Мексика",
+      "currency": "MXN",
+      "flag": "https://flagcdn.com/mx.svg"
+    },
+    {
+      "name": "Великобритания",
+      "currency": "GBP",
+      "flag": "https://flagcdn.com/gb.svg"
+    },
+    {
+      "name": "Германия",
+      "currency": "EUR",
+      "flag": "https://flagcdn.com/de.svg"
+    },
+    {
+      "name": "Франция",
+      "currency": "EUR",
+      "flag": "https://flagcdn.com/fr.svg"
+    },
+    {
+      "name": "Италия",
+      "currency": "EUR",
+      "flag": "https://flagcdn.com/it.svg"
+    },
+    {
+      "name": "Испания",
+      "currency": "EUR",
+      "flag": "https://flagcdn.com/es.svg"
+    },
+    {
+      "name": "Россия",
+      "currency": "RUB",
+      "flag": "https://flagcdn.com/ru.svg"
+    },
+    {
+      "name": "Китай",
+      "currency": "CNY",
+      "flag": "https://flagcdn.com/cn.svg"
+    },
+    {
+      "name": "Япония",
+      "currency": "JPY",
+      "flag": "https://flagcdn.com/jp.svg"
+    },
+    {
+      "name": "Южная Корея",
+      "currency": "KRW",
+      "flag": "https://flagcdn.com/kr.svg"
+    },
+    {
+      "name": "Индия",
+      "currency": "INR",
+      "flag": "https://flagcdn.com/in.svg"
+    },
+    {
+      "name": "Австралия",
+      "currency": "AUD",
+      "flag": "https://flagcdn.com/au.svg"
+    },
+    {
+      "name": "Бразилия",
+      "currency": "BRL",
+      "flag": "https://flagcdn.com/br.svg"
+    },
+    {
+      "name": "Южная Африка",
+      "currency": "ZAR",
+      "flag": "https://flagcdn.com/za.svg"
+    },
+    {
+      "name": "Саудовская Аравия",
+      "currency": "SAR",
+      "flag": "https://flagcdn.com/sa.svg"
+    },
+    {
+      "name": "Аргентина",
+      "currency": "ARS",
+      "flag": "https://flagcdn.com/ar.svg"
+    },
+    {
+      "name": "Турция",
+      "currency": "TRY",
+      "flag": "https://flagcdn.com/tr.svg"
+    },
+    {
+      "name": "Швейцария",
+      "currency": "CHF",
+      "flag": "https://flagcdn.com/ch.svg"
+    },
+    {
+      "name": "Норвегия",
+      "currency": "NOK",
+      "flag": "https://flagcdn.com/no.svg"
+    },
+    {
+      "name": "Швеция",
+      "currency": "SEK",
+      "flag": "https://flagcdn.com/se.svg"
+    },
+    {
+      "name": "Дания",
+      "currency": "DKK",
+      "flag": "https://flagcdn.com/dk.svg"
+    },
+    {
+      "name": "Польша",
+      "currency": "PLN",
+      "flag": "https://flagcdn.com/pl.svg"
+    },
+    {
+      "name": "Венгрия",
+      "currency": "HUF",
+      "flag": "https://flagcdn.com/hu.svg"
+    },
+    {
+      "name": "Чехия",
+      "currency": "CZK",
+      "flag": "https://flagcdn.com/cz.svg"
+    },
+    {
+      "name": "Украина",
+      "currency": "UAH",
+      "flag": "https://flagcdn.com/ua.svg"
+    },
+    {
+      "name": "Беларусь",
+      "currency": "BYN",
+      "flag": "https://flagcdn.com/by.svg"
+    },
+    {
+      "name": "Казахстан",
+      "currency": "KZT",
+      "flag": "https://flagcdn.com/kz.svg"
+    },
+    {
+      "name": "Израиль",
+      "currency": "ILS",
+      "flag": "https://flagcdn.com/il.svg"
+    },
+    {
+      "name": "Египет",
+      "currency": "EGP",
+      "flag": "https://flagcdn.com/eg.svg"
+    }
+  ]
+}

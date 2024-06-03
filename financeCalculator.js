@@ -1,7 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
+    const finNumbers = document.querySelectorAll('.finance .basic__digi')
+    const amountDisplay = document.getElementById('amount')
+    finNumbers.forEach(nm => nm.addEventListener('click', () => addNmbr(nm.outerText)))
+
+    let finInput = ""
     const form = document.getElementById('conversionForm');
     const result = document.getElementById('result');
 
+    function addNmbr(chr){
+        finInput += chr
+        amountDisplay.innerHTML = finInput
+    }
+
+    
     async function getExchangeRate() {
         try {
             const response = await fetch('https://v6.exchangerate-api.com/v6/56f9dd5997ec6a47b0fd64fa/latest/USD');
@@ -13,10 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    form.addEventListener('submit', async function(event) {
+    form.addEventListener('submit', async event => {
         event.preventDefault();
-        const amount = parseFloat(document.getElementById('amount').value);
-        if (isNaN(amount)) {
+        if (isNaN(+finInput)) {
             result.textContent = 'Пожалуйста, введите корректную сумму.';
             return;
         }
@@ -25,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
             result.textContent = 'Не удалось получить текущий курс валют. Попробуйте позже.';
             return;
         }
-        const convertedAmount = amount * exchangeRate;
-        result.textContent = `${amount} долларов = ${convertedAmount.toFixed(2)} рублей.`;
+        const convertedAmount = finInput * exchangeRate;
+        result.textContent = `${finInput} долларов = ${convertedAmount.toFixed(2)} рублей.`;
     });
-});
