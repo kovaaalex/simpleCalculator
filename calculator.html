@@ -102,9 +102,10 @@
         </div> 
         <div id="finance__calculator" class="calc">
         <form id="conversionForm">
+            <div id="from" class="valute"></div>
+            <div id="to" class="valute"></div>
             <label for="amount">Сумма в долларах:</label>
-            <div id="amount"></div>
-            <button type="submit">Конвертировать</button>
+            <div id="amount">0</div>
             <div class="basic__bttns finance">
                 <button class="basic__digi">7</button>
                 <button class="basic__digi">8</button>
@@ -116,6 +117,9 @@
                 <button class="basic__digi">2</button>
                 <button class="basic__digi">3</button>
                 <button class="basic__digi">0</button>
+                <button class="basic__digi">.</button>
+                <button id="finance__backspace">⟵</button>
+                <button id="finance__clear">CE</button>
             </div>
         </form>
         <p id="result"></p>
@@ -125,6 +129,7 @@
     <script src="newBasicCalc.js"></script>
     <script src="engineeringCalculator.js"></script>
     <script src="financeCalculator.js"></script>
+    <script src="addValutes.js"></script>
 </body>
 </html>
 <!--po поменял, надо в js исправить-->
