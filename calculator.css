@@ -108,5 +108,20 @@ header ul li{
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
+.countries{
+    display: flex;
+}
+.country{
+    display: flex;
+    align-items: center;
+}
+.country img{
+    height: 20px;
+    width: 40px;
+    object-fit: cover;
+}
+.coutry__currency{
+    margin: 0 10px;
+}
 /*текст справа сделать
 Оранжевым подсвечивать выбранный калькулятор*/
