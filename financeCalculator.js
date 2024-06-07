@@ -9,7 +9,8 @@ let finInput = "", countAfterPoint = 0, includesPoint = false
 const form = document.getElementById('conversionForm');
 const result = document.getElementById('result');
 const choose__valute = document.querySelectorAll('.choose__valute')
-
+choose__valute.forEach(chv => chv.addEventListener('click', () => openGrid(chv)))
+var listOfCountries, response, y, convertion_from = 'USD', conversion_to = 'USD'
 function addNmbr(chr){
     if((chr === '.' && includesPoint) || countAfterPoint === 2) return
     if(chr === '.' && !finInput) finInput = "0."
@@ -33,9 +34,10 @@ function financeClear(){
 }
 async function getExchangeRate() {
     try {
-        const response = await fetch('https://v6.exchangerate-api.com/v6/56f9dd5997ec6a47b0fd64fa/latest/BYN')
+        response = await fetch(`https://v6.exchangerate-api.com/v6/56f9dd5997ec6a47b0fd64fa/latest/${convertion_from}`)
         const data = await response.json();
-        return data.conversion_rates.BYN;
+        y = data.conversion_rates[conversion_to]
+        return y;
     } catch (error) {
         console.error('Error fetching exchange rate:', error);
         return null;
@@ -54,10 +56,8 @@ form.addEventListener('submit', async event => {
         return;
     }
     const convertedAmount = finInput * exchangeRate;
-    result.textContent = `${finInput} долларов = ${convertedAmount.toFixed(2)} рублей.`
+    result.textContent = `${convertedAmount.toFixed(2)}`
 })
-
-choose__valute.forEach(chv => chv.addEventListener('click', () => openGrid(chv)))
 
 function openGrid(chv){
     const cls = chv.closest('.vl')
@@ -66,4 +66,27 @@ function openGrid(chv){
         valuteElement.style.display = 'grid'
     else
         valuteElement.style.display = 'none'
+    listOfCountries = document.querySelectorAll('.country')
+    listOfCountries.forEach(ctr => ctr.addEventListener('click', () => chooseCountry(ctr, ctr.innerText)))
+}
+
+async function chooseCountry(ctr, ctrText){
+    let data, c = ctr.closest('.valute'), d = c.closest('.vl'), e = d.querySelector('.choose__valute')
+    try {
+        const response = await fetch('countries.json');
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        data = await response.json();
+    
+        // Находим объект с валютой "RUB"
+        const country = data.countries.find(country => country.currency === ctrText);
+    
+        // Дополнительные действия с данными...
+      } catch (error) {
+        console.error('Ошибка при загрузке JSON файла:', error);
+      }
+      fillStartElement(e, data.countries, data, ctrText)
+      if(c.id === "to") conversion_to = ctrText
+      if(c.id === "from") convertion_from = ctrText
 }
