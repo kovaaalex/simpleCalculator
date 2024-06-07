@@ -103,6 +103,12 @@ header ul li{
 #basic__equal, #engineering__equal{
     background-color: #FFA500;
 }
+.finance__calculator{
+    display: flex;
+}
+form{
+    display: flex;
+}
 .finance{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -110,10 +116,12 @@ header ul li{
 }
 .countries{
     display: flex;
+    height: 50px;
 }
 .country{
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 .country img{
     height: 20px;
@@ -122,6 +130,25 @@ header ul li{
 }
 .coutry__currency{
     margin: 0 10px;
+}
+.vl{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+}
+.valute{
+    position: absolute;
+    display: none;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+.choose__valute{
+    display: flex;
+    align-items: center;
+}
+#amount{
+    text-align: right;
+    width: 150px;
 }
 /*текст справа сделать
 Оранжевым подсвечивать выбранный калькулятор*/
