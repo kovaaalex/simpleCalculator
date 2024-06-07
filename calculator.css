@@ -139,6 +139,7 @@ form{
 .valute{
     position: absolute;
     display: none;
+    align-items: first baseline;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
 }
@@ -146,9 +147,16 @@ form{
     display: flex;
     align-items: center;
 }
-#amount{
+#amount, #result{
     text-align: right;
     width: 150px;
+}
+#from{
+    margin-top:220px;
+}
+#to{
+    margin-top:220px;
+    margin-left: -50px;
 }
 /*текст справа сделать
 Оранжевым подсвечивать выбранный калькулятор*/
