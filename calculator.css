@@ -172,6 +172,7 @@ form{
 }
 .dt div{
     margin: 0 auto;
+    text-align: center;
 }
 /* Заголовки секций */
 #date__calculator h4 {
