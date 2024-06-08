@@ -183,6 +183,7 @@ form{
 
 /* Контейнеры для выбора дат */
 .choose__date {
+    display: none;
     width: 200px;
     padding: 10px;
     border-radius: 10px;

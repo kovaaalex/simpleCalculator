@@ -12,6 +12,7 @@ chosen__dates.forEach(chosen__date => changeDate(chosen__date))
 function changeDate(chosen__date, ch_dt = today){
     chosen__date.innerHTML = `${ch_dt.getDate()} ${month[mnth]} ${ch_dt.getFullYear()}`
 }
+
 function addCalendar(calendar){
     function renderCalendar(){
         let firstDayOfMonth = new Date(year, mnth, 1).getDay()
@@ -81,10 +82,18 @@ function addTdListeners(){
     }))
     tds.forEach(td => td.addEventListener('click', () => {
         if(!isNaN(td.innerHTML) && td.innerHTML !== '') {
-            let closestCalendar = td.closest('.choose__date')
-            let inn = closestCalendar.querySelector('.calendar__header span')
-            let text = inn.innerHTML
-            alert(`Выбрана дата: ${td.innerHTML} ${text}`)
+            let closestCalendar = td.closest('.calendar')
+            let inn = closestCalendar.querySelector('span')
+            let text = `${td.innerHTML} ${inn.innerHTML}`
+            closestCalendar.querySelector('.selected__date').innerHTML = text
         }
     }))
 }
+chosen__dates.forEach(chosen__date => chosen__date.addEventListener('click', () => {
+    let closestCalendar = chosen__date.closest('.calendar')
+    let clr = closestCalendar.querySelector('.choose__date')
+    if(clr.style.display === 'none')
+        clr.style.display = 'block'
+    else
+        clr.style.display = 'none'
+}))
