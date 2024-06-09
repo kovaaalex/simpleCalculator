@@ -239,8 +239,39 @@ td:hover {
     background-color: #353535;
     cursor: pointer;
 }
+.added{
+    display: flex;
+}
+.added__unity{
+    display: flex;
+    align-items: center;
+}
+.added__text{
+    padding: 5px 15px;
+}
 
+.strelka{
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(135deg);
+    position: relative;
+    top: -4px;
+}
+.from0to999 {
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc; /* Граница для визуального эффекта */
+    box-sizing: border-box;
+}
 
-
+.item {
+    padding: 5px;
+    border-bottom: 1px solid #eee; /* Линия под каждым элементом для разделения */
+}
+.itemNumber{
+    height: 20px;
+}
 /*текст справа сделать
 Оранжевым подсвечивать выбранный калькулятор*/

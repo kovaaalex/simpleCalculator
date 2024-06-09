@@ -14,6 +14,22 @@ function changeDate(chosen__date, ch_dt = today){
     chosen__date.innerHTML = `${ch_dt.getDate()} ${month[mnth]} ${ch_dt.getFullYear()}`
 }
 
+const add999 = document.querySelectorAll('.from0to999')
+add999.forEach(itemAdd999 => {
+    let itemsHTML = '';
+    for (var i = 0; i < 1000; i++) {
+        itemsHTML += `<div class="itemNumber" style="height: 20px;">${i}</div>`;
+    }
+    itemAdd999.innerHTML = itemsHTML;
+
+    const items = itemAdd999.querySelectorAll('.itemNumber');
+            const visibleItemCount = 12;
+            if (items.length > 0) {
+                const itemHeight = items[0].style.height;
+                const containerHeight = parseInt(itemHeight) * visibleItemCount;
+                itemAdd999.style.height = containerHeight + "px";
+            }
+})
 function addCalendar(calendar){
     function renderCalendar(){
         let firstDayOfMonth = new Date(year, mnth, 1).getDay()
