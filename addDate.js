@@ -15,6 +15,7 @@ function changeDate(chosen__date, ch_dt = today){
 }
 
 const add999 = document.querySelectorAll('.from0to999')
+const addedUnities = document.querySelectorAll('.added__unity')
 add999.forEach(itemAdd999 => {
     let itemsHTML = '';
     for (var i = 0; i < 1000; i++) {
@@ -30,6 +31,12 @@ add999.forEach(itemAdd999 => {
                 itemAdd999.style.height = containerHeight + "px";
             }
 })
+addedUnities.forEach(unity => unity.addEventListener('click', () => {
+    const choose__unity = unity.querySelector('.from0to999')
+    if(choose__unity.style.display === 'none')
+        choose__unity.style.display = 'block'
+    else choose__unity.style.display = 'none'
+}))
 function addCalendar(calendar){
     function renderCalendar(){
         let firstDayOfMonth = new Date(year, mnth, 1).getDay()

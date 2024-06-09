@@ -244,12 +244,23 @@ td:hover {
 }
 .added__unity{
     display: flex;
-    align-items: center;
 }
 .added__text{
     padding: 5px 15px;
 }
 
+
+.from0to999 {
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc; /* Граница для визуального эффекта */
+    box-sizing: border-box;
+}
+.added__info{
+    display: flex;
+    align-items: center;
+}
 .strelka{
     width: 12px;
     height: 12px;
@@ -259,13 +270,6 @@ td:hover {
     position: relative;
     top: -4px;
 }
-.from0to999 {
-    overflow-y: auto;
-    overflow-x: hidden;
-    border: 1px solid #ccc; /* Граница для визуального эффекта */
-    box-sizing: border-box;
-}
-
 .item {
     padding: 5px;
     border-bottom: 1px solid #eee; /* Линия под каждым элементом для разделения */
