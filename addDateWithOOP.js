@@ -115,6 +115,39 @@ class DateManagement{
         this.changeDate(document.querySelector('.added__result'), convertedDate)
     }
 }
+class UnityPicker{
+    constructor(element){
+        this.element = element
+        this.renders()
+        this.addListeners()
+    }
+    renders(){
+        let itemsHTML = '';
+        for (var i = 0; i < 1000; i++)
+            itemsHTML += `<div class="itemNumber" style="height: 20px;">${i}</div>`;
+        this.element.innerHTML = itemsHTML;
+        const items = this.element.querySelectorAll('.itemNumber');
+        const visibleItemCount = 12;
+        if (items.length > 0) {
+            const itemHeight = items[0].style.height;
+            const containerHeight = parseInt(itemHeight) * visibleItemCount;
+            this.element.style.height = containerHeight + "px";
+        }
+    }
+    addListeners(){
+        this.element.addEventListener('click', () => {
+            const choose__unity = this.element.querySelector('.from0to999')
+            choose__unity.style.display = choose__unity.style.display === 'none' ? 'block' : 'none'
+        })
+        this.element.forEach(item => item.addEventListener('click', ()=>{
+            const added__unity = item.closest('.added__unity')
+            let text = this.element.querySelector('.added__text')
+            let unity__id = element.id + "s"
+            text.innerHTML = `${item.innerHTML} ${unity__id}`
+            addDay()
+        }))
+    }
+}
 document.addEventListener('DOMContentLoaded', () =>{
     const calendars = document.querySelectorAll('.choose__date')
     calendars.forEach(calendar => new Calendar(calendar))
