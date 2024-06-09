@@ -1,5 +1,6 @@
 const calendars = document.querySelectorAll('.choose__date')
 const chosen__dates = document.querySelectorAll('.selected__date')
+const dateDiffDates = document.querySelectorAll('#date__difference .selected__date')
 
 const month = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
 const daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
@@ -86,6 +87,7 @@ function addTdListeners(){
             let inn = closestCalendar.querySelector('span')
             let text = `${td.innerHTML} ${inn.innerHTML}`
             closestCalendar.querySelector('.selected__date').innerHTML = text
+            countDifference()
         }
     }))
 }
@@ -97,3 +99,19 @@ chosen__dates.forEach(chosen__date => chosen__date.addEventListener('click', () 
     else
         clr.style.display = 'none'
 }))
+function convertDate(stringDate){
+    const parts = stringDate.split(" ")
+    const d = +parts[0]
+    const m = month.indexOf(parts[1])
+    const y = +parts[2]
+    const date = new Date(y, m, d)
+    return date
+}
+function countDifference(){
+    const date1String = dateDiffDates[0].innerHTML
+    const date2String = dateDiffDates[1].innerHTML
+    let date1 = convertDate(date1String)
+    let date2 = convertDate(date2String)
+    let diffTime = Math.abs(date2 - date1)/(1000 * 60 * 60 * 24)
+    document.querySelector('.result__difference').innerHTML = `${diffTime} дн`
+}
