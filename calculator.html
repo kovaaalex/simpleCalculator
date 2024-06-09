@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="calculator.css">
-    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.4/math.min.js"></script>
 </head>
 <body>
@@ -71,7 +70,7 @@
                 <button class="engineering__unary__operation">sin(x)</button>
                 <button class="engineering__unary__operation">cos(x)</button>
                 <button class="engineering__unary__operation">tan(x)</button>
-                <button class="engineering__operation" id="basic__minus">-</button>
+                <button class="engineering__operation" id="engineering__minus">-</button>
                 <button class="engineering__operation" id="engineering__exp">exp</button>
                 <button class="unique__number" id="ENumber">e</button>
                 <button class="unique__number" id="PiNumber">π</button>
@@ -150,7 +149,7 @@
             <div id="add_day" class="dt">
                 <h4>Добавить дату</h4>
                 <div class="calendar">
-                    <div class="selected__date" id="second__date"></div>
+                    <div class="selected__date" id="solo__date"></div>
                     <div class="choose__date"></div>
                 </div>
                 <div class="checked__radio">
@@ -182,8 +181,10 @@
                         <div class="from0to999"></div>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="mainCalculator.js"></script>
     <script src="newBasicCalc.js"></script>

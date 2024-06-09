@@ -138,3 +138,10 @@ function countDifference(){
     let diffTime = Math.abs(date2 - date1)/(1000 * 60 * 60 * 24)
     document.querySelector('.result__difference').innerHTML = `${diffTime} дн`
 }
+const items = document.querySelectorAll('.itemNumber');
+items.forEach(item => item.addEventListener('click', ()=>{
+    const added__unity = item.closest('.added__unity')
+    let text = added__unity.querySelector('.added__text')
+    let unity__id = added__unity.id + "s"
+    text.innerHTML = `${item.innerHTML} ${unity__id}`
+}))
