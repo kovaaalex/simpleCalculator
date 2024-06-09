@@ -1,29 +1,29 @@
+const _month = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
 class Calendar{
     constructor(element){
         this.element = element
-        this.month = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
-        this.daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-        this.today = new Date()
-        this.mnth = today.getMonth()
-        this.year = today.getFullYear()
+        this._daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+        this._today = new Date()
+        this.mnth = this._today.getMonth()
+        this.year = this._today.getFullYear()
         this.renderCalendar()
     }
+    
     renderCalendar(){
         let firstDayOfMonth = new Date(this.year, this.mnth, 1).getDay()
         let lastDateOfMonth = new Date(this.year, this.mnth + 1, 0).getDate()
         let dayOfWeek = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1
-
         let calendarHTML = 
         `<div class="calendar__header">
             <button class="prev__month">&lt;</button>
-            <span>${this.month[this.mnth]} ${this.year}</span>
+            <span>${_month[this.mnth]} ${this.year}</span>
             <button class="next__month">&gt;</button>
         </div>
         <table>
             <thead>
                 <tr>`
 
-        this.daysOfWeek.forEach(day => {
+        this._daysOfWeek.forEach(day => {
             calendarHTML += `<th>${day}</th>`
         })
         calendarHTML += `</tr>
@@ -45,10 +45,11 @@ class Calendar{
         }
         calendarHTML += `</tr></tbody></table>`
         this.element.innerHTML = calendarHTML
-        this.element.querySelector('.prev__month').addEventListener('click', this.changeMonth(-1))
-        this.element.querySelector('.next__month').addEventListener('click', this.changeMonth(1))
-        this.element.addTdListeners()
+        this.element.querySelector('.prev__month').addEventListener('click', () => this.changeMonth(-1))
+        this.element.querySelector('.next__month').addEventListener('click', () => this.changeMonth(1))
+        this.addTdListeners()
     }
+    
     changeMonth(direction){
         this.mnth += direction
         if (this.mnth < 0) {
@@ -61,6 +62,7 @@ class Calendar{
         }
         this.renderCalendar()
     }
+
     addTdListeners(){
         const tds = document.querySelectorAll('td')
         tds.forEach(td => td.addEventListener('mouseenter', () => {
@@ -83,18 +85,28 @@ class Calendar{
             }
         }))
     }
+
+    static getToday(){
+        return this._today
+    }
+
 }
 class DateManagement{
+    constructor(element){
+        this.element = element
+        this.changeDate(this.element, new Date)
+        this.addDateListener()
+    }
     static convertDate(stringDate){
         const parts = stringDate.split(" ")
         const d = +parts[0]
-        const m = month.indexOf(parts[1])
+        const m = _month.indexOf(parts[1])
         const y = +parts[2]
         const date = new Date(y, m, d)
         return date
     }
-    static changeDate(chosen__date, ch_dt = today){
-        chosen__date.innerHTML = `${ch_dt.getDate()} ${month[ch_dt.getMonth()]} ${ch_dt.getFullYear()}`
+    changeDate(chosen__date, ch_dt){
+        chosen__date.innerHTML = `${ch_dt.getDate()} ${_month[ch_dt.getMonth()]} ${ch_dt.getFullYear()}`
     }
     static addDay(){
         const mainDate = document.querySelector('#add__day .selected__date')
@@ -112,7 +124,25 @@ class DateManagement{
             convertedDate.setMonth(convertedDate.getMonth() - addedMonth)
             convertedDate.setDate(convertedDate.getDate() - addedDay)
         }
-        this.changeDate(document.querySelector('.added__result'), convertedDate)
+        let aaa = document.querySelector('.added__result')
+        aaa.innerHTML = `${convertedDate.getDate()} ${_month[convertedDate.getMonth()]} ${convertedDate.getFullYear()}`
+    }
+    addDateListener(){
+        this.element.addEventListener('click', () => {
+            let closestCalendar = this.element.closest('.calendar')
+            let clr = closestCalendar.querySelector('.choose__date')
+            if(clr.style.display === 'none')
+                clr.style.display = 'block'
+            else
+                clr.style.display = 'none'
+        })
+    }
+    static countDifference() {
+        const dateDiffDates = document.querySelectorAll('#date__difference .selected__date');
+        const date1 = this.convertDate(dateDiffDates[0].innerHTML);
+        const date2 = this.convertDate(dateDiffDates[1].innerHTML);
+        const diffTime = Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+        document.querySelector('.result__difference').innerHTML = `${diffTime} дн`;
     }
 }
 class UnityPicker{
@@ -125,30 +155,43 @@ class UnityPicker{
         let itemsHTML = '';
         for (var i = 0; i < 1000; i++)
             itemsHTML += `<div class="itemNumber" style="height: 20px;">${i}</div>`;
-        this.element.innerHTML = itemsHTML;
+        this.element.querySelector('.from0to999').innerHTML = itemsHTML;
         const items = this.element.querySelectorAll('.itemNumber');
         const visibleItemCount = 12;
         if (items.length > 0) {
             const itemHeight = items[0].style.height;
             const containerHeight = parseInt(itemHeight) * visibleItemCount;
-            this.element.style.height = containerHeight + "px";
+            this.element.querySelector('.from0to999').style.height = containerHeight + "px";
         }
     }
     addListeners(){
         this.element.addEventListener('click', () => {
-            const choose__unity = this.element.querySelector('.from0to999')
-            choose__unity.style.display = choose__unity.style.display === 'none' ? 'block' : 'none'
-        })
-        this.element.forEach(item => item.addEventListener('click', ()=>{
-            const added__unity = item.closest('.added__unity')
-            let text = this.element.querySelector('.added__text')
-            let unity__id = element.id + "s"
-            text.innerHTML = `${item.innerHTML} ${unity__id}`
-            addDay()
-        }))
+            const choose__unity = this.element.querySelector('.from0to999');
+            choose__unity.style.display = choose__unity.style.display === 'none' ? 'block' : 'none';
+        });
+        this.element.querySelectorAll('.itemNumber').forEach(item => {
+            item.addEventListener('click', () => {
+                const text = this.element.querySelector('.added__text');
+                const unity__id = this.element.id + "s";
+                text.innerHTML = `${item.innerHTML} ${unity__id}`;
+                DateManagement.addDay();
+            });
+        });
     }
 }
 document.addEventListener('DOMContentLoaded', () =>{
     const calendars = document.querySelectorAll('.choose__date')
     calendars.forEach(calendar => new Calendar(calendar))
+
+    const add999 = document.querySelectorAll('.added__unity')
+    add999.forEach(item => new UnityPicker(item))
+    
+    const chosen__dates = document.querySelectorAll('.selected__date')
+    chosen__dates.forEach(chosen__date => new DateManagement(chosen__date))
+    
+
+    const radioButtons = document.querySelectorAll('input[type="radio"]')
+        radioButtons.forEach(radio => {
+        radio.addEventListener('change', DateManagement.addDay());
+    })
 })
